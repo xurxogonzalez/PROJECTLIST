@@ -1,0 +1,114 @@
+@import "../../basic.scss";
+
+$btn-color: cadetblue;
+$color--1: rgb(14, 14, 66);
+
+input,
+button {
+  line-height: 1.6em;
+}
+.container {
+  width: 25em;
+  margin: 3em auto;
+  padding: 0.2em 1em 1em 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 0 0 1px grey;
+  .title {
+    color: $color--1;
+    text-align: center;
+    font-variant: small-caps;
+  }
+  .field {
+    display: flex;
+    column-gap: 0.2em;
+  }
+  .btn-input {
+    background-color: rgba($btn-color, 0.7);
+    border: 1px solid $btn-color;
+    border-radius: 0.5em;
+    &:active {
+      background-color: $btn-color;
+    }
+  }
+  #input {
+    flex-grow: 1;
+    border-radius: 0.3em;
+    border: 1px solid lighten($btn-color, 35%);
+    background-color: lighten($btn-color, 35%);
+    &:invalid {
+      background-color: rgba(red, 0.2);
+    }
+  }
+  .items-container {
+    visibility: hidden;
+    &.show-items-container {
+      visibility: visible;
+    }
+    .list-container {
+      padding-top: 1em;
+      .list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.5em;
+        padding-left: 0.5em;
+        &:nth-child(even) {
+          background-color: rgba(orange, 0.2);
+        }
+        &:nth-child(odd) {
+          background-color: rgba(teal, 0.2);
+        }
+        .item {
+          color: $color--1;
+          letter-spacing: 0.2em;
+          &::first-letter {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    .clear-items {
+      display: block;
+      margin: 0 auto;
+      width: fit-content;
+      color: rgba(red, 0.5);
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  .alert {
+    &.success,
+    &.error {
+      margin: 1em 0;
+      padding: 0.1em 0.5em;
+      text-align: center;
+      color: rgb(95, 91, 91);
+    }
+    &.success {
+      background-color: rgba(120, 161, 54, 0.5);
+    }
+    &.error {
+      background-color: rgba(red, 0.5);
+    }
+  }
+  .btn-container {
+    .btn {
+      border-style: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      .fa-trash {
+        color: red;
+        &:active {
+          color: rgb(95, 91, 91);
+        }
+      }
+      .fa-edit {
+        color: teal;
+        &:active {
+          color: rgb(95, 91, 91);
+        }
+      }
+    }
+  }
+}
